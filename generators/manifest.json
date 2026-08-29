@@ -1,0 +1,58 @@
+{
+  "format": 1,
+  "source": "contracts/database/schema.json",
+  "desiredSql": "contracts/database/desired.sql",
+  "materializer": {
+    "command": "node tools/materialize-desired.mjs",
+    "checkCommand": "node tools/materialize-desired.mjs --check",
+    "version": "1"
+  },
+  "adapters": [
+    {
+      "profile": "rust-seaorm",
+      "generator": "sea-orm-cli",
+      "version": "1.1",
+      "source": "ephemeral desired-state database",
+      "output": "generated/rust/seaorm"
+    },
+    {
+      "profile": "typescript-drizzle",
+      "generator": "drizzle-kit",
+      "version": "0.31",
+      "source": "canonical schema",
+      "output": "generated/typescript/drizzle"
+    },
+    {
+      "profile": "typescript-prisma",
+      "generator": "prisma",
+      "version": "6",
+      "source": "canonical schema",
+      "output": "generated/typescript/prisma",
+      "when": "consumer-exists"
+    },
+    {
+      "profile": "typescript-typeorm",
+      "generator": "typeorm-model-generator",
+      "version": "0.4",
+      "source": "ephemeral desired-state database",
+      "output": "generated/typescript/typeorm",
+      "when": "consumer-exists"
+    },
+    {
+      "profile": "go-ent",
+      "generator": "ent",
+      "version": "0.14",
+      "source": "canonical schema",
+      "output": "generated/go/ent"
+    },
+    {
+      "profile": "dart-drift",
+      "generator": "drift_dev",
+      "version": "2",
+      "source": "canonical schema",
+      "output": "generated/dart/drift",
+      "when": "offline-consumer-exists"
+    }
+  ],
+  "handEditsToGeneratedOutputs": "forbidden"
+}

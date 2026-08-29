@@ -1,0 +1,30 @@
+{
+  "format": 1,
+  "canonicalRepository": "evento-globolo/evgl-lib-core",
+  "authoritativeDialect": "postgresql",
+  "cockroachDbMode": "dpm-live-verification-required",
+  "sources": [
+    {
+      "path": "migrations/declarative/0001_events.sql",
+      "repository": "evento-globolo/evgl-interfaces",
+      "revision": "a21aa69c1d4e10ffcb3c444da53acd7de75e3dd8",
+      "sourcePath": "sql/001_initial.sql",
+      "sha256": "1a373a93b15f60df2cb81c0778222fa7716ba4d205c9cd5104a418471fea379c"
+    },
+    {
+      "path": "migrations/declarative/0002_ticketing_inventory.sql",
+      "repository": "evento-globolo/evgl-interfaces",
+      "revision": "a21aa69c1d4e10ffcb3c444da53acd7de75e3dd8",
+      "sourcePath": "sql/002_ticketing_inventory.sql",
+      "sha256": "a4ba23b9c62b977fd6ffddeca566c13075dec2a927b205604fdbae3f318c9bb0"
+    },
+    {
+      "path": "migrations/declarative/0003_admission.sql",
+      "repository": "evento-globolo/evgl-interfaces",
+      "revision": "a21aa69c1d4e10ffcb3c444da53acd7de75e3dd8",
+      "sourcePath": "sql/003_admission.sql",
+      "sha256": "a01949d4ad0a1924878a07539d5b6edf935c75c8fec1916714b223af94760967"
+    }
+  ],
+  "excludedLegacySources": []
+}

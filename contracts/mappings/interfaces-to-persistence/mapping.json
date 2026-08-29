@@ -1,0 +1,36 @@
+{
+  "format": 1,
+  "interfaces": {
+    "repository": "evento-globolo/evgl-interfaces",
+    "revision": "a21aa69c1d4e10ffcb3c444da53acd7de75e3dd8"
+  },
+  "policy": "Wire contracts never become implicit database contracts; each mapping is explicit and one-way.",
+  "status": "bootstrap-mapping",
+  "mappings": [
+    {
+      "wireType": "Event",
+      "table": "events",
+      "direction": "explicit-adapter-required"
+    },
+    {
+      "wireType": "TicketClass",
+      "table": "ticket_classes",
+      "direction": "explicit-adapter-required"
+    },
+    {
+      "wireType": "TicketOrder",
+      "table": "ticket_orders",
+      "direction": "explicit-adapter-required"
+    },
+    {
+      "wireType": "AdmissionEntitlement",
+      "table": "admission_entitlements",
+      "direction": "explicit-adapter-required"
+    },
+    {
+      "wireType": "AdmissionScanReceipt",
+      "table": "admission_scan_receipts",
+      "direction": "explicit-adapter-required"
+    }
+  ]
+}

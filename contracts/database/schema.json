@@ -1,0 +1,87 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/evento-globolo/evgl-lib-core/blob/main/contracts/database/schema.json",
+  "title": "Evento Globolo persistence inventory contract",
+  "description": "Bootstrap JSON Schema for the canonical SQL inventory. Column-level mappings are promoted only after semantic catalog reconciliation and generated-adapter parity.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "table",
+    "values"
+  ],
+  "properties": {
+    "table": {
+      "type": "string",
+      "enum": [
+        "admission_decisions",
+        "admission_entitlements",
+        "admission_scan_receipts",
+        "admission_scanner_keys",
+        "admission_signing_keys",
+        "admission_tokens",
+        "event_inventory",
+        "events",
+        "ticket_classes",
+        "ticket_holds",
+        "ticket_inventory_ledger",
+        "ticket_order_history",
+        "ticket_orders",
+        "ticket_waitlist",
+        "ticket_waitlist_offers"
+      ]
+    },
+    "values": {
+      "type": "object",
+      "additionalProperties": true
+    }
+  },
+  "x-lib-core": {
+    "format": 1,
+    "product": "evgl",
+    "authority": "contracts/database/desired.sql",
+    "schemaPhase": "inventory-bootstrap",
+    "tables": [
+      "admission_decisions",
+      "admission_entitlements",
+      "admission_scan_receipts",
+      "admission_scanner_keys",
+      "admission_signing_keys",
+      "admission_tokens",
+      "event_inventory",
+      "events",
+      "ticket_classes",
+      "ticket_holds",
+      "ticket_inventory_ledger",
+      "ticket_order_history",
+      "ticket_orders",
+      "ticket_waitlist",
+      "ticket_waitlist_offers"
+    ],
+    "functions": [
+      "evgl_cancel_ticket_order",
+      "evgl_confirm_ticket_payment",
+      "evgl_create_ticket_order",
+      "evgl_expire_ticket_holds",
+      "evgl_join_ticket_waitlist",
+      "evgl_promote_ticket_waitlist",
+      "evgl_reconcile_ticket_admission",
+      "evgl_record_admission_receipt",
+      "evgl_reserve_tickets",
+      "evgl_revoke_admission_entitlement"
+    ],
+    "capabilityProfiles": [
+      "contracts",
+      "read",
+      "write",
+      "migrator"
+    ],
+    "generatedAdapters": [
+      "rust-seaorm",
+      "typescript-drizzle",
+      "typescript-prisma",
+      "typescript-typeorm",
+      "go-ent",
+      "dart-drift"
+    ]
+  }
+}

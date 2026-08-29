@@ -1,0 +1,30 @@
+{
+  "format": 1,
+  "engines": {
+    "postgresql": {
+      "minimumVersion": "16",
+      "status": "supported-by-dpm"
+    },
+    "cockroachdb": {
+      "minimumVersion": "25.2",
+      "status": "requires-live-dpm-verification"
+    }
+  },
+  "destructiveChanges": {
+    "generationConsent": "required",
+    "executionConsent": "required",
+    "reviewedPlanChecksum": "required"
+  },
+  "startupMigrations": "forbidden",
+  "productionMigrator": {
+    "mode": "serialized-one-shot-job",
+    "databaseRole": "evgl__migrator",
+    "fencing": "fiducia-lease-required"
+  },
+  "runtimeRoles": {
+    "api": "evgl__api_rw",
+    "web": "evgl__web_ro",
+    "webState": "evgl__web_state_rw"
+  },
+  "legacyReconciliation": []
+}
