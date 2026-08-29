@@ -1,0 +1,25 @@
+[package]
+name = "evgl-lib-core"
+version = "0.1.0"
+edition = "2024"
+license = "MIT"
+description = "Role-aware SeaORM boundary for evgl on PostgreSQL and CockroachDB"
+repository = "https://github.com/evento-globolo/evgl-lib-core"
+
+[features]
+# read-only is the default so a web server that forgets to say
+# `default-features = false` still cannot reach the write surface.
+default = ["read-only"]
+read-only = []
+read-write = ["read-only"]
+migrate = ["read-write", "dep:sea-orm-migration"]
+
+[dependencies]
+sea-orm = { version = "1", default-features = false, features = ["macros", "runtime-tokio-rustls", "sqlx-postgres"] }
+sea-orm-migration = { version = "1", optional = true, default-features = false, features = ["runtime-tokio-rustls", "sqlx-postgres"] }
+
+[dev-dependencies]
+tokio = { version = "1", features = ["macros", "rt-multi-thread"] }
+
+[lints.rust]
+unsafe_code = "forbid"
