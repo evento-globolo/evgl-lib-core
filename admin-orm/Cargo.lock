@@ -258,6 +258,7 @@ version = "0.1.0"
 dependencies = [
  "sea-orm",
  "thiserror",
+ "url",
  "uuid",
 ]
 
