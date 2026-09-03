@@ -1,0 +1,6 @@
+name = "evgl_validation_server"
+version = "0.1.0"
+
+[dependencies]
+gleam_stdlib = ">= 1.0.0 and < 2.0.0"
+evgl_validation = { path = "../gleam" }

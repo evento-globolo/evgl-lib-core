@@ -1,0 +1,42 @@
+[package]
+org = "evento-globolo"
+name = "evgl-validation"
+version = "0.1.0"
+description = "Polyglot public/server validation SDK for evento-globolo"
+license = "MIT"
+
+[dependencies]
+"evento-globolo/evgl-interfaces" = "^0.1.0"
+"oresoftware/api-docs" = "^2.0.0"
+
+[targets.typescript]
+dir = "typescript"
+adapter = "node"
+
+[targets.rust]
+dir = "rust"
+adapter = "rust"
+
+[targets.golang]
+dir = "golang"
+adapter = "none"
+
+[targets.gleam]
+dir = "gleam"
+adapter = "none"
+
+[targets.server-typescript]
+dir = "typescript-server"
+adapter = "node"
+
+[targets.server-rust]
+dir = "rust-server"
+adapter = "rust"
+
+[targets.server-golang]
+dir = "golang-server"
+adapter = "none"
+
+[targets.server-gleam]
+dir = "gleam-server"
+adapter = "none"

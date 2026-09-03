@@ -1,0 +1,25 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/evento-globolo/evgl-lib-core/validation/contract.v1.json",
+  "contractVersion": "ores.validation.v1",
+  "owner": "evento-globolo/evgl-lib-core",
+  "publicAuthority": "https://github.com/evento-globolo/evgl-interfaces/tree/main/validation",
+  "routeAuthority": "https://github.com/ORESoftware/api-docs",
+  "visibility": {
+    "public": ["request-meta", "page-query", "problem-details"],
+    "server": ["trusted-actor", "server-request-context", "internal-command"]
+  },
+  "languageBindings": {
+    "typescript": {"library": "zod", "publicPackage": "@evento-globolo/evgl-validation", "serverPackage": "@evento-globolo/evgl-validation-server"},
+    "rust": {"library": "garde", "publicPackage": "evgl-validation", "serverPackage": "evgl-validation-server"},
+    "golang": {"library": "go-playground/validator/v10", "publicPackage": "github.com/evento-globolo/evgl-lib-core/validation/golang", "serverPackage": "github.com/evento-globolo/evgl-lib-core/validation/golang-server"},
+    "gleam": {"library": "gleam/dynamic/decode", "publicPackage": "evgl_validation", "serverPackage": "evgl_validation_server"}
+  },
+  "rules": {
+    "clientExportsPublicOnly": true,
+    "serverMayImportPublic": true,
+    "serverDefinitionsNeverEmittedToClients": true,
+    "routeBindingsUseApiDocsOperationId": true,
+    "unknownFieldsRejectedWhereRuntimeSupportsIt": true
+  }
+}
