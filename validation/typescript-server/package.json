@@ -1,0 +1,11 @@
+{
+  "name": "@evento-globolo/evgl-validation-server",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "files": ["dist"],
+  "exports": {".": {"types": "./dist/server.d.ts", "import": "./dist/server.js"}},
+  "scripts": {"build": "tsc -p tsconfig.json", "test": "npm run build"},
+  "dependencies": {"@evento-globolo/evgl-validation": "file:../typescript", "zod": "^4.0.0"},
+  "devDependencies": {"typescript": "^5.9.0"}
+}

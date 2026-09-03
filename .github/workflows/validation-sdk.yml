@@ -1,0 +1,57 @@
+name: validation-sdk
+
+on:
+  pull_request:
+    paths: ["validation/**", ".github/workflows/validation-sdk.yml"]
+  push:
+    branches: [main]
+    paths: ["validation/**", ".github/workflows/validation-sdk.yml"]
+
+permissions:
+  contents: read
+
+jobs:
+  contract:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683
+      - run: python3 -m json.tool validation/contract.v1.json >/dev/null
+  typescript:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683
+      - run: npm install --prefix validation/typescript
+      - run: npm test --prefix validation/typescript
+      - run: npm install --prefix validation/typescript-server
+      - run: npm test --prefix validation/typescript-server
+  rust:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683
+      - run: cargo test --manifest-path validation/rust/Cargo.toml
+      - run: cargo test --manifest-path validation/rust-server/Cargo.toml
+  golang:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683
+      - uses: actions/setup-go@924ae3a1cded613372ab5595356fb5720e22ba16
+        with:
+          go-version: "1.25.x"
+          cache: false
+      - run: go test -mod=mod ./...
+        working-directory: validation/golang
+      - run: go test -mod=mod ./...
+        working-directory: validation/golang-server
+  gleam:
+    runs-on: ubuntu-latest
+    container: ghcr.io/gleam-lang/gleam:v1.14.0-erlang-alpine
+    steps:
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683
+      - run: gleam test --target erlang
+        working-directory: validation/gleam
+      - run: gleam check --target javascript
+        working-directory: validation/gleam
+      - run: gleam check --target erlang
+        working-directory: validation/gleam-server
+      - run: gleam check --target javascript
+        working-directory: validation/gleam-server
