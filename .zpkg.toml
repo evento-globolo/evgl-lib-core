@@ -1,0 +1,33 @@
+[package]
+org = "evento-globolo"
+name = "evgl-lib-core"
+version = "0.1.0"
+description = "Canonical Evento Globolo persistence contracts and DPM planning"
+license = "MIT"
+keywords = ["lib-core", "seaorm", "postgresql", "cockroachdb", "migrations"]
+language = "rust"
+
+[package.repository]
+vcs = "git"
+url = "https://github.com/evento-globolo/evgl-lib-core"
+
+[dependencies]
+"evento-globolo/evgl-interfaces" = "^0.1.0"
+"oresoftware/k8s-libs-and-shared-defs" = "^0.1.0"
+"declarative-migrations/declarative-postgres-migrate" = "^0.3.2"
+
+[install]
+adapter = "rust"
+dir = ".vendor/.zed"
+
+[targets.rust]
+dir = "."
+
+[publish]
+include_readme = true
+tag_format = "v{version}"
+smoke_test = "cargo test --locked --all-targets --all-features --manifest-path \"$ZED_PKG_TEST_TARGET/Cargo.toml\""
+exclude = [".env", ".env.*", ".ores/**", ".vendor/**", ".zed-pack/**", "target/**", "tmp/**", "**/*.log", ".DS_Store"]
+
+[scripts]
+test = "node tools/materialize-desired.mjs --check && cargo test --locked --all-targets --all-features"
