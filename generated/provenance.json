@@ -1,0 +1,30 @@
+{
+  "format": 1,
+  "canonicalRepository": "evento-globolo/evgl-lib-core",
+  "sourceManifestSha256": "d3ca790c85685ad6491ecac39b2cd388c17a9bfa85ec7db771246efe3453d836",
+  "persistenceSchemaSha256": "69ad082f7cd9a7f0813f2c033c0ef46d10de3d01c27548f072bcc3dd7be8eadb",
+  "desiredSqlSha256": "57210f7eef64e16e51a0338e27da1f27acc5cf88165f44e9d9ba7f25ec3f660b",
+  "sources": [
+    {
+      "path": "migrations/declarative/0001_events.sql",
+      "repository": "evento-globolo/evgl-interfaces",
+      "revision": "a21aa69c1d4e10ffcb3c444da53acd7de75e3dd8",
+      "sourcePath": "sql/001_initial.sql",
+      "sha256": "1a373a93b15f60df2cb81c0778222fa7716ba4d205c9cd5104a418471fea379c"
+    },
+    {
+      "path": "migrations/declarative/0002_ticketing_inventory.sql",
+      "repository": "evento-globolo/evgl-interfaces",
+      "revision": "a21aa69c1d4e10ffcb3c444da53acd7de75e3dd8",
+      "sourcePath": "sql/002_ticketing_inventory.sql",
+      "sha256": "a4ba23b9c62b977fd6ffddeca566c13075dec2a927b205604fdbae3f318c9bb0"
+    },
+    {
+      "path": "migrations/declarative/0003_admission.sql",
+      "repository": "evento-globolo/evgl-interfaces",
+      "revision": "a21aa69c1d4e10ffcb3c444da53acd7de75e3dd8",
+      "sourcePath": "sql/003_admission.sql",
+      "sha256": "a01949d4ad0a1924878a07539d5b6edf935c75c8fec1916714b223af94760967"
+    }
+  ]
+}
