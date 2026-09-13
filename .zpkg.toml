@@ -14,6 +14,7 @@ url = "https://github.com/evento-globolo/evgl-lib-core"
 [dependencies]
 "evento-globolo/evgl-interfaces" = "^0.1.0"
 "oresoftware/k8s-libs-and-shared-defs" = "^0.1.0"
+"oresoftware/next-loggers" = "^0.1.0"
 "declarative-migrations/declarative-postgres-migrate" = "^0.3.2"
 
 [install]
